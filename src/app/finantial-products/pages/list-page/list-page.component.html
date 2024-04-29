@@ -1,0 +1,42 @@
+<div class="flex flex-column p-8">
+  <div class="flex flex-row">
+    <div class="flex col-11">
+      <search-component (searchEvent)="receiveMessage($event)"></search-component>
+    </div>
+    <div class="flex">
+      <button class="yellow-button p-3" [routerLink]="['/finantial-products/new']">Agregar</button>
+    </div>
+  </div>
+  <div class="p-5 tableContainer mt-5">
+    <table class="table" id="myTable">
+      <thead>
+          <tr>
+              <th *ngFor="let title of finantialProductsTitles">{{title}}</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let finantialProduct of pagedItems | finantialProductsFilter: searchText">
+        <tr id="{{finantialProduct.id}}">
+            <td> <img src="{{finantialProduct.logo}}"/></td>
+            <td> {{finantialProduct.name}} </td>
+            <td> {{finantialProduct.description}} </td>
+            <td> {{finantialProduct.date_release| finantialProductsDate}} </td>
+            <td> {{finantialProduct.date_revision| finantialProductsDate}} </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="flex flex-row tableContainer">
+      <div class="flex flex-column col-11 tableContainer">
+        <p>{{total}} Resultados</p>
+      </div>
+      <div class="flex flex-column tableContainer mt-4">
+        <select [(ngModel)]="selectedValue">
+          <option *ngFor="let pageNumber of pageNumbers" [value]="pageNumber">
+              {{ pageNumber }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+</div>
