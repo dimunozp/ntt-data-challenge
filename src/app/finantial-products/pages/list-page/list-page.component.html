@@ -39,7 +39,7 @@
         <p>{{total}} Resultados</p>
       </div>
       <div class="flex flex-column tableContainer mt-4">
-        <select [(ngModel)]="selectedValue">
+        <select (change)="changeNumberOfElements($event)">
           <option *ngFor="let pageNumber of pageNumbers" [value]="pageNumber">
               {{ pageNumber }}
           </option>

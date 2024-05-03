@@ -31,12 +31,16 @@ export class ListPageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.getFinantialProducts();
+
+  }
+
+  private getFinantialProducts(){
     this.finantialProductsService.getFinantialProducts()
       .subscribe(finantialProducts => {
         this.finantialProducts = finantialProducts;
         this.total = finantialProducts.length;
       })
-
   }
 
   editFinantialProduct(product: FinantialProduct) {
@@ -55,8 +59,14 @@ export class ListPageComponent implements OnInit {
     return [5, 10, 20]
   }
 
-  get pagedItems(): any[] {
+  get pagedItems(): FinantialProduct[] {
     return this.finantialProducts.slice(0, this.selectedValue);
+  }
+
+  changeNumberOfElements(event: Event){
+    const selectedOption = (event.target as HTMLSelectElement).value;
+    this.selectedValue = Number(selectedOption);
+    this.getFinantialProducts();
   }
 
   toggleDropdown() {
