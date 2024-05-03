@@ -93,4 +93,23 @@ describe('FinantialProductsService', () => {
 
     req.flush(newProduct);
   });
+
+  it('should put update finantial product', () => {
+    const updateProduct: FinantialProduct = {
+      id: '3',
+      name: 'Product 3',
+      logo: 'test',
+      description: 'test',
+      date_release: 'test',
+      date_revision: 'test'
+    };
+
+    service.putUpdateFinantialProduct(updateProduct).subscribe(finantialProduct => {
+      expect(finantialProduct).toEqual(updateProduct);
+    });
+
+    const req = httpTestingController.expectOne(`${environments.baseUrl}/bp/products`);
+    expect(req.request.method).toBe('PUT');
+    req.flush(updateProduct);
+  });
 });

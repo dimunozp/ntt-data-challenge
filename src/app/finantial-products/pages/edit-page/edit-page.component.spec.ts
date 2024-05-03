@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewPageComponent } from './new-page.component';
+import { EditComponent } from './edit-page.component';
 
 describe('EditComponent', () => {
-  let component: NewPageComponent;
-  let fixture: ComponentFixture<NewPageComponent>;
+  let component: EditComponent;
+  let fixture: ComponentFixture<EditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NewPageComponent]
+      declarations: [EditComponent]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewPageComponent);
+    fixture = TestBed.createComponent(EditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

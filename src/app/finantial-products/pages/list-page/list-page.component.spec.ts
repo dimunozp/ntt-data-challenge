@@ -2,16 +2,23 @@ import { ListPageComponent } from './list-page.component';
 import { FinantialProduct } from '../../interfaces/finantial-product.interface';
 import { FinantialProductsService } from '../../services/finantial-products.service';
 import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 describe('ListPageComponent', () => {
   let component: ListPageComponent;
   let finantialProductsService: FinantialProductsService;
+  let router: Router;
+  let navigateSpy: jest.SpyInstance;
 
   beforeEach(() => {
     finantialProductsService = {
       getFinantialProducts: jest.fn(() => of([]))
     } as unknown as FinantialProductsService;
-    component = new ListPageComponent(finantialProductsService);
+    router = {
+      navigate: jest.fn()
+    } as unknown as Router;
+    navigateSpy = jest.spyOn(router, 'navigate');
+    component = new ListPageComponent(finantialProductsService, router);
   });
 
   it('should create', () => {
@@ -84,5 +91,22 @@ describe('ListPageComponent', () => {
     const pagedItems = component.pagedItems;
 
     expect(pagedItems).toEqual(finantialProducts.slice(0, component.selectedValue));
+  });
+
+  it('should navigate to edit page with correct product', () => {
+    const mockProduct: FinantialProduct = {
+      id: '1',
+      name: 'Mock Product',
+      description: 'This is a mock product',
+      logo: 'mock-url',
+      date_release: '2024-05-01T00:00:00.000Z',
+      date_revision: '2024-05-02T00:00:00.000Z'
+    };
+
+    component.editFinantialProduct(mockProduct);
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/finantial-products/edit/1'], {
+      state: { product: mockProduct }
+    });
   });
 });

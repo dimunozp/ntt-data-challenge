@@ -48,4 +48,17 @@ export class FinantialProductsService {
     )
   }
 
+  putUpdateFinantialProduct(finantialProduct: FinantialProduct):Observable<FinantialProduct> {
+
+    return this.httpClient.put<FinantialProduct>(
+      `${this.baseUrl}/bp/products`,
+      finantialProduct,
+      {
+        headers: {
+          "authorId": "123"
+        }
+      }
+    )
+  }
+
 }

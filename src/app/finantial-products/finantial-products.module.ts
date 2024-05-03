@@ -8,6 +8,8 @@ import { SearchComponent } from './components/search-component/search.component'
 import { FinantialProductsDatePipe } from './pipes/finantial-products-date.pipe';
 import { FinantialProductsFilterPipe } from './pipes/finantial-products-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './components/form-component/form.component';
+import { EditComponent } from './pages/edit-page/edit-page.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewPageComponent,
     SearchComponent,
     FinantialProductsDatePipe,
-    FinantialProductsFilterPipe
+    FinantialProductsFilterPipe,
+    FormComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,

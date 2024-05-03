@@ -1,0 +1,34 @@
+.container {
+  background: #F4F6F9;
+}
+
+.formContainer {
+  background: #ffffff;
+}
+
+input {
+  width: 90%;
+}
+
+button {
+  width: 15%;
+  cursor: pointer;
+}
+
+#btnReset{
+  background-color: #F4F6F9;
+  border: none;
+}
+
+#btnSubmit{
+  background-color: #F5DF66;
+  border: none;
+}
+
+span {
+  color: red;
+}
+
+#date_revision{
+  opacity: 0.5;
+}

@@ -1,0 +1,109 @@
+
+<form [formGroup]="finantialProductForm" (ngSubmit)="onSave()" autocomplete="off">
+
+  <div class="flex flex-row">
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>ID</label>
+      </div>
+      <div class="flex col-12">
+          <input type="text" class="p-3" formControlName="id" [readonly]="isEditMode" [ngStyle]="{ 'opacity': isEditMode ? '0.5' : '1' }">
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('id')" class="form-text text-danger">
+            {{getFieldError('id')}}
+        </span>
+      </div>
+    </div>
+
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>Nombre</label>
+      </div>
+      <div class="flex col-12">
+          <input type="text" class="p-3"  formControlName="name">
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('name')" class="form-text text-danger">
+          {{getFieldError('name')}}
+      </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row">
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>Descripción</label>
+      </div>
+      <div class="flex col-12">
+          <input type="text" class="p-3"  formControlName="description">
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('description')" class="form-text text-danger">
+          {{getFieldError('description')}}
+      </span>
+      </div>
+    </div>
+
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>Logo</label>
+      </div>
+      <div class="flex col-12">
+          <input type="text" class="p-3"  formControlName="logo">
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('logo')" class="form-text text-danger">
+          {{getFieldError('logo')}}
+      </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row">
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>Fecha Liberación</label>
+      </div>
+      <div class="flex col-12">
+          <input type="date" class="p-3"  formControlName="date_release" (input)="onChangeDate('date_release')">
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('date_release')" class="form-text text-danger">
+          {{getFieldError('date_release')}}
+      </span>
+      </div>
+    </div>
+
+    <div class="flex flex-column col-6">
+      <div class="flex col-12">
+        <label>Fecha Revisión</label>
+      </div>
+      <div class="flex col-12">
+          <input id="date_revision" type="date" class="p-3" formControlName="date_revision" readonly>
+      </div>
+      <div class="flex col-12">
+        <span *ngIf="isValidField('date_revision')" class="form-text text-danger">
+          {{getFieldError('date_revision')}}
+      </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex flex-row">
+    <div class="flex flex-row-reverse col-6">
+      <button id="btnReset" class="float-end mr-6 p-3" type="button" (click)="onReset()">
+        Reiniciar
+      </button>
+    </div>
+
+    <div class="flex flex-column col-6">
+      <button id="btnSubmit" class="float-end ml-5 p-3" type="submit" [disabled]="finantialProductForm.invalid">
+        {{buttonText}}
+      </button>
+    </div>
+  </div>
+</form>
+
