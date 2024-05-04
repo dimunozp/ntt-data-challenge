@@ -3,7 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'search-component',
   templateUrl: './search.component.html',
-  styles: ``
+  styleUrl: "./search.styles.css"
 })
 export class SearchComponent {
 

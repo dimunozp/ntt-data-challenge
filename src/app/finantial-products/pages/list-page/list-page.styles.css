@@ -1,17 +1,18 @@
 .table-container {
   overflow-x: auto;
 }
-.table {
+table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
 }
-.table th, .table td {
+th, td {
+  padding: 8px;
   border-bottom: 1px solid #ccc;
-  padding: 17px;
-  text-align: left;
   text-align: center;
+  padding: 17px;
 }
-.table th {
+th {
   background-color: #f2f2f2;
 }
 div {
@@ -19,9 +20,7 @@ div {
 }
 .tableContainer {
   background: #ffffff;
-}
-input {
-  width: 20%;
+  width: 97%;
 }
 img{
   border-radius: 50%;
@@ -81,4 +80,12 @@ button, span{
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+@media screen and (max-width: 785px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  th, td, #addPruduct {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

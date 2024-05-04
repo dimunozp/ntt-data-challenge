@@ -11,7 +11,7 @@ input {
 }
 
 button {
-  width: 15%;
+  width: 30%;
   cursor: pointer;
 }
 
@@ -32,3 +32,10 @@ span {
 #date_revision{
   opacity: 0.5;
 }
+
+@media screen and (max-width: 785px) {
+  button {
+    width: 70%;
+  }
+}
+
