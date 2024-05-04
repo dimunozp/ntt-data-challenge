@@ -1,0 +1,5 @@
+@media screen and (max-width: 785px) {
+  input {
+    width: 50%;
+  }
+}
